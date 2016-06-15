@@ -5,30 +5,36 @@
     </div>
 </div>
 <div class="form-group">
-    <label for="username" class="col-sm-2 control-label">User Name</label>
+    <label for="username" class="col-sm-2 control-label">User Name *</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="appointment.username" class="form-control" id="username" placeholder="User Name"/>
+        <input type="text" ng-model="appointment.username" class="form-control" id="username" placeholder="User Name" required/>
+        <span ng-show="appointmentForm.username.$touched && appointmentForm.username.$invalid">User name is required.</span>
     </div>
 </div>
 <div class="form-group">
-    <label for="reason" class="col-sm-2 control-label">Reason Visit</label>
+    <label for="reason" class="col-sm-2 control-label">Reason Visit *</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="appointment.reason" class="form-control" id="reason" placeholder="Reason to visit"/>
-    </div>
-</div>
-
-<div class="form-group">
-    <label for="start" class="col-sm-2 control-label">Start Time</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="appointment.start" class="form-control" id="start" placeholder="Start Time"/>
+        <input type="text" ng-model="appointment.reason" class="form-control" id="reason" placeholder="Reason to visit" required/>
+        <span ng-show="appointmentForm.reason.$touched && appointmentForm.reason.$invalid">Reason is required.</span>
     </div>
 </div>
 
 <div class="form-group">
-    <label for="end" class="col-sm-2 control-label">End Time</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="appointment.end" class="form-control" id="end" placeholder="End Time"/>
-    </div>
+    <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="appointment.startdate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+    </p>
+</div>
+
+<div class="form-group">
+    <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="appointment.enddate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+    </p>
 </div>
 
 <div class="form-group">
