@@ -1,14 +1,14 @@
-<a ui-sref="newMovie" class="btn-primary btn-lg nodecoration">Add New Movie</a>
-<table class="table movietable">
+<a ui-sref="newAppointment" class="btn-primary btn-lg nodecoration">Add New Appointment</a>
+<table class="table appointmenttable">
     <tr>
-        <td><h3>All Movies</h3></td>
+        <td><h3>All Name</h3></td>
         <td></td>
     </tr>
-    <tr ng-repeat="movie in movies">
-        <td>{{movie.title}}</td>
+    <tr ng-repeat="appointment in appointments">
+        <td>{{appointment.username}}</td>
         <td>
-            <a class="btn btn-primary" ui-sref="viewMovie({id:movie._id})">View</a>
-            <a class="btn btn-danger"  ng-click="deleteMovie(movie)">Delete</a>
+            <a class="btn btn-primary" ui-sref="viewAppointment({id:appointment._id})">View</a>
+            <a class="btn btn-danger"  ng-click="deleteAppointment(appointment)">Delete</a>
         </td>
     </tr>
 </table>
