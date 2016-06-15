@@ -1,20 +1,20 @@
 <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="appointment.name" class="form-control" id="name" placeholder="Name Title Here"/>
+        <input name="name" type="text" ng-model="appointment.name" class="form-control" id="name" placeholder="Name Title Here"/>
     </div>
 </div>
 <div class="form-group">
     <label for="username" class="col-sm-2 control-label">User Name *</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="appointment.username" class="form-control" id="username" placeholder="User Name" required/>
+        <input name="username" type="text" ng-model="appointment.username" class="form-control" id="username" placeholder="User Name" required/>
         <span ng-show="appointmentForm.username.$touched && appointmentForm.username.$invalid">User name is required.</span>
     </div>
 </div>
 <div class="form-group">
     <label for="reason" class="col-sm-2 control-label">Reason Visit *</label>
     <div class="col-sm-10">
-        <input type="text" ng-model="appointment.reason" class="form-control" id="reason" placeholder="Reason to visit" required/>
+        <input name="reason" type="text" ng-model="appointment.reason" class="form-control" id="reason" placeholder="Reason to visit" required/>
         <span ng-show="appointmentForm.reason.$touched && appointmentForm.reason.$invalid">Reason is required.</span>
     </div>
 </div>
