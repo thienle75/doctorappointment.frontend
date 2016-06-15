@@ -12,7 +12,15 @@ angular.module('appointmentApp').config(function($stateProvider,$httpProvider){
     }).state('viewAppointment',{
        url:'/appointments/:id/view',
        templateUrl:'partials/appointment-view.html',
-       controller:'AppointmentViewController'
+       controller:'AppointmentViewController',
+        resolve: {
+            // using this will load the controller once the promise is resolved and inject 
+            // Appointment to the controller, which then can be directly assigned to your scope.
+            // see https://github.com/angular-ui/ui-router/wiki#resolve
+            Appointment: function ($stateParams) {
+                Appointment.get({id:$stateParams.id}).$promise;
+            }    
+        }
     }).state('newAppointment',{
         url:'/appointments/new',
         templateUrl:'partials/appointment-add.html',
