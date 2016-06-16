@@ -1,8 +1,5 @@
-/**
- * Created by Sandeep on 01/06/14.
- */
 
-angular.module('appointmentApp',['ui.router','ngResource','appointmentApp.controllers','appointmentApp.services']);
+angular.module('appointmentApp',['ui.router','ngResource','appointmentApp.controllers','appointmentApp.services','ui.bootstrap.datepicker'],);
 
 angular.module('appointmentApp').config(function($stateProvider,$httpProvider){
     $stateProvider.state('appointments',{
@@ -33,6 +30,8 @@ angular.module('appointmentApp').config(function($stateProvider,$httpProvider){
 }).run(function($state){
    $state.go('appointments');
 });
+
+angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
 angular.module('ui.bootstrap.demo').controller('DatepickerPopupCtrl', function ($scope) {
     $scope.today = function() {
         $scope.dt = new Date();
