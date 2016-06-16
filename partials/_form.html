@@ -1,31 +1,34 @@
 <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-        <input name="name" type="text" ng-model="appointment.name" class="form-control" id="name" placeholder="Name Title Here"/>
+        <input name="name" type="text" ng-model="Appointment.name" class="form-control" id="name" placeholder="Name Title Here"/>
     </div>
 </div>
 <div class="form-group">
     <label for="username" class="col-sm-2 control-label">User Name *</label>
     <div class="col-sm-10">
-        <input name="username" type="text" ng-model="appointment.username" class="form-control" id="username" placeholder="User Name" required/>
-        <span ng-show="appointmentForm.username.$touched && appointmentForm.username.$invalid">User name is required.</span>
+        <input name="username" type="text" ng-model="Appointment.username" class="form-control" id="username" placeholder="User Name" required/>
         <!-- example of using ng-messages see https://docs.angularjs.org/api/ngMessages/directive/ngMessages -->
-        <ng-messages for="appointmentForm.username.$error" role="alert">
+        <ng-messages for="AppointmentForm.username.$error" role="alert">
           <ng-message when="required">User name is required.</ng-message>
         </ng-messages>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group" ng-controller="reasonController">
     <label for="reason" class="col-sm-2 control-label">Reason Visit *</label>
     <div class="col-sm-10">
-        <input name="reason" type="text" ng-model="appointment.reason" class="form-control" id="reason" placeholder="Reason to visit" required/>
-        <span ng-show="appointmentForm.reason.$touched && appointmentForm.reason.$invalid">Reason is required.</span>
+        <select ng-model="Appointment.reason" required>
+            <option ng-repeat="r in reasons" value="{{r.reason}}">{{r.reason}}</option>
+        </select>
+       <ng-messages for="AppointmentForm.reason.$error" role="alert">
+          <ng-message when="required">Reason is required.</ng-message>
+        </ng-messages>
     </div>
 </div>
 
 <div class="form-group">
     <p class="input-group">
-        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="appointment.startdate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <input type="text" name="start_time" class="form-control" uib-datepicker-popup="{{format}}" ng-model="Appointment.start_time" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
@@ -34,7 +37,7 @@
 
 <div class="form-group">
     <p class="input-group">
-        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="appointment.enddate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <input type="text" name="end_time" class="form-control" uib-datepicker-popup="{{format}}" ng-model="Appointment.end_time" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>

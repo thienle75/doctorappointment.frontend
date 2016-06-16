@@ -40,4 +40,10 @@ angular.module('appointmentApp.controllers',[]).controller('AppointmentListContr
     };
 
     $scope.loadAppointment();
+}).controller('reasonController', function($scope) {
+    $scope.reasons = [
+        {reason : "Headache"},
+        {reason : "Fever"},
+        {reason : "Check up"}
+    ];
 });
